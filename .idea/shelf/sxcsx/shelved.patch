@@ -1,0 +1,51 @@
+Index: src/App.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { Component } from 'react';\nimport logo from './logo.svg';\nimport './App.css';\n\nclass App extends Component {\n  render() {\n    return (\n      <div className=\"App\">\n        <header className=\"App-header\">\n          <img src={logo} className=\"App-logo\" alt=\"logo\" />\n          <p>\n            Edit <code>src/App.js</code> and save to reload.\n          </p>\n          <a\n            className=\"App-link\"\n            href=\"https://reactjs.org\"\n            target=\"_blank\"\n            rel=\"noopener noreferrer\"\n          >\n            Learn React\n          </a>\n        </header>\n      </div>\n    );\n  }\n}\n\nexport default App;\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/App.js	(date 1548928967000)
++++ src/App.js	(date 1548930346276)
+@@ -1,28 +1,17 @@
+-import React, { Component } from 'react';
+-import logo from './logo.svg';
++import React from 'react';
+ import './App.css';
++import Header from "./components/Header";
++import Todos from "./components/Todos";
++import store from './Store';
++import {Provider} from "react-redux";
+ 
+-class App extends Component {
+-  render() {
+-    return (
+-      <div className="App">
+-        <header className="App-header">
+-          <img src={logo} className="App-logo" alt="logo" />
+-          <p>
+-            Edit <code>src/App.js</code> and save to reload.
+-          </p>
+-          <a
+-            className="App-link"
+-            href="https://reactjs.org"
+-            target="_blank"
+-            rel="noopener noreferrer"
+-          >
+-            Learn React
+-          </a>
+-        </header>
+-      </div>
+-    );
+-  }
+-}
++const App = () => (
++    <Provider store={store}>
++        <div className="App">
++            <Header/>
++            <Todos/>
++        </div>
++    </Provider>
++)
+ 
+ export default App;
